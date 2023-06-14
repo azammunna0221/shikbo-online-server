@@ -1,0 +1,46 @@
+[
+      {
+        "_id": "a1bcdefghij",
+        "image": "instructor1.jpg",
+        "name": "John Smith",
+        "email": "john.smith@example.com",
+        "students": 30
+      },
+      {
+        "_id": "b2cdefghijk",
+        "image": "instructor2.jpg",
+        "name": "Jane Doe",
+        "email": "jane.doe@example.com",
+        "students": 35
+      },
+      {
+        "_id": "c3defghijkl",
+        "image": "instructor3.jpg",
+        "name": "Michael Johnson",
+        "email": "michael.johnson@example.com",
+        "students": 13
+      },
+      {
+        "_id": "d4efghijklm",
+        "image": "instructor4.jpg",
+        "name": "Emily Wilson",
+        "email": "emily.wilson@example.com",
+        "students": 53
+      },
+      {
+        "_id": "e5fghijklmn",
+        "image": "instructor5.jpg",
+        "name": "David Thompson",
+        "email": "david.thompson@example.com",
+        "students": 73
+      },
+      {
+        "_id": "f6ghijklmno",
+        "image": "instructor6.jpg",
+        "name": "Sarah Adams",
+        "email": "sarah.adams@example.com",
+        "students": 53
+      }
+]
+
+  

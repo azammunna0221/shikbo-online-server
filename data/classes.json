@@ -1,0 +1,83 @@
+[
+      {
+        "_id": "646a6605dae3c198a7d564cc",
+        "image": "subject1.jpg",
+        "name": "PHYSICS",
+        "instructor": "John Smith",
+        "available_seats": 25,
+        "price": 50
+      },
+      {
+        "_id": "646a6605dae3c198a7d595gt",
+        "image": "subject2.jpg",
+        "name": "MATH",
+        "instructor": "Jane Doe",
+        "available_seats": 10,
+        "price": 75
+      },
+      {
+        "_id": "646a6605dae3c198a7d587cf",
+        "image": "subject3.jpg",
+        "name": "BIOLOGY",
+        "instructor": "Michael Johnson",
+        "available_seats": 15,
+        "price": 60
+      },
+      {
+        "_id": "646a6605dae3c198a7d598rt",
+        "image": "subject4.jpg",
+        "name": "CHEMISTRY",
+        "instructor": "Emily Wilson",
+        "available_seats": 20,
+        "price": 80
+      },
+      {
+        "_id": "646a6605dae3c198a7d567yt",
+        "image": "subject5.jpg",
+        "name": "ENGLISH",
+        "instructor": "David Thompson",
+        "available_seats": 30,
+        "price": 55
+      },
+      {
+        "_id": "646a6605dae3c198a7d502th",
+        "image": "subject6.jpg",
+        "name": "ICT",
+        "instructor": "Sarah Adams",
+        "available_seats": 12,
+        "price": 70
+      },
+      {
+        "_id": "646a6605dae3c198a7d78yu",
+        "image": "subject7.jpg",
+        "name": "BANGLA",
+        "instructor": "Robert Davis",
+        "available_seats": 8,
+        "price": 90
+      },
+      {
+        "_id": "646a6605dae3c198a7d565vb",
+        "image": "subject8.jpg",
+        "name": "SOCIAL SCIENCE",
+        "instructor": "Olivia Martinez",
+        "available_seats": 18,
+        "price": 65
+      },
+      {
+        "_id": "646a6605dae3c198a7d598lk",
+        "image": "subject9.jpg",
+        "name": "ECONOMICS",
+        "instructor": "William Wilson",
+        "available_seats": 22,
+        "price": 45
+      },
+      {
+        "_id": "646a6605dae3c198a7d593mj",
+        "image": "subject10.jpg",
+        "name": "SCIENCE",
+        "instructor": "Sophia Thompson",
+        "available_seats": 28,
+        "price": 85
+      }
+]
+  
