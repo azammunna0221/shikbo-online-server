@@ -1,7 +1,7 @@
 [
       {
         "_id": "646a6605dae3c198a7d564cc",
-        "image": "subject1.jpg",
+        "image": "https://images.theconversation.com/files/191827/original/file-20171025-25516-g7rtyl.jpg?ixlib=rb-1.1.0&rect=0%2C70%2C7875%2C5667&q=45&auto=format&w=926&fit=clip",
         "name": "PHYSICS",
         "instructor": "John Smith",
         "available_seats": 25,
@@ -9,7 +9,7 @@
       },
       {
         "_id": "646a6605dae3c198a7d595gt",
-        "image": "subject2.jpg",
+        "image": "https://img.freepik.com/premium-vector/realistic-math-chalkboard-background_23-2148154055.jpg?w=2000",
         "name": "MATH",
         "instructor": "Jane Doe",
         "available_seats": 10,
@@ -17,7 +17,7 @@
       },
       {
         "_id": "646a6605dae3c198a7d587cf",
-        "image": "subject3.jpg",
+        "image": "https://thumbs.dreamstime.com/b/biology-hand-drawn-doodles-lettering-education-science-vector-white-background-135246167.jpg",
         "name": "BIOLOGY",
         "instructor": "Michael Johnson",
         "available_seats": 15,
@@ -25,7 +25,7 @@
       },
       {
         "_id": "646a6605dae3c198a7d598rt",
-        "image": "subject4.jpg",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-chemistry-background_23-2148164901.jpg",
         "name": "CHEMISTRY",
         "instructor": "Emily Wilson",
         "available_seats": 20,
@@ -33,7 +33,7 @@
       },
       {
         "_id": "646a6605dae3c198a7d567yt",
-        "image": "subject5.jpg",
+        "image": "https://img.freepik.com/free-photo/english-british-england-language-education-concept_53876-133735.jpg",
         "name": "ENGLISH",
         "instructor": "David Thompson",
         "available_seats": 30,
@@ -41,7 +41,7 @@
       },
       {
         "_id": "646a6605dae3c198a7d502th",
-        "image": "subject6.jpg",
+        "image": "https://thumbs.dreamstime.com/b/ict-information-communications-technology-modern-server-room-background-virtual-screen-141876739.jpg",
         "name": "ICT",
         "instructor": "Sarah Adams",
         "available_seats": 12,
