@@ -28,7 +28,7 @@
         "image": "https://img.freepik.com/free-vector/hand-drawn-chemistry-background_23-2148164901.jpg",
         "name": "CHEMISTRY",
         "instructor": "Emily Wilson",
-        "available_seats": 20,
+        "available_seats": 0,
         "price": 80
       },
       {
@@ -49,7 +49,7 @@
       },
       {
         "_id": "646a6605dae3c198a7d78yu",
-        "image": "subject7.jpg",
+        "image": "https://www.daily-sun.com/assets/news_images/2021/02/20/Bangla-ds.jpg",
         "name": "BANGLA",
         "instructor": "Robert Davis",
         "available_seats": 8,
@@ -57,7 +57,7 @@
       },
       {
         "_id": "646a6605dae3c198a7d565vb",
-        "image": "subject8.jpg",
+        "image": "https://img.freepik.com/free-vector/colorful-science-education-background_23-2148490697.jpg?w=2000",
         "name": "SOCIAL SCIENCE",
         "instructor": "Olivia Martinez",
         "available_seats": 18,
@@ -65,7 +65,7 @@
       },
       {
         "_id": "646a6605dae3c198a7d598lk",
-        "image": "subject9.jpg",
+        "image": "https://img.freepik.com/free-vector/illustration-data-analysis-graph_53876-18129.jpg?w=2000",
         "name": "ECONOMICS",
         "instructor": "William Wilson",
         "available_seats": 22,
@@ -73,7 +73,7 @@
       },
       {
         "_id": "646a6605dae3c198a7d593mj",
-        "image": "subject10.jpg",
+        "image": "https://img.freepik.com/free-vector/colorful-science-education-background_23-2148490697.jpg?w=2000",
         "name": "SCIENCE",
         "instructor": "Sophia Thompson",
         "available_seats": 28,
