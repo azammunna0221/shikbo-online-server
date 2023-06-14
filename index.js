@@ -2,7 +2,6 @@ const express = require ('express');
 const app = express();
 const cors = require('cors');
 require('dotenv').config();
-const classesData = require('./data/classes.json')
 const instructorsData = require('./data/instructors.json')
 const port = process.env.PORT || 5000;
 
@@ -10,17 +9,11 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-app.get('/classes', (req, res) =>{
-  res.send(classesData);
-})
-
-app.get('/instructors', (req, res) => {
-  res.send(instructorsData)
-})
 
 
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
+
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri = `mongodb+srv://${process.env.db_user}:${process.env.db_pass}@cluster0.jwmpqqv.mongodb.net/?retryWrites=true&w=majority`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -40,8 +33,44 @@ async function run() {
     await client.connect();
     // Send a ping to confirm a successful connection
 
-    const userCollection = client.db('Summ_School').collection('users');
+    const classCollection = client.db('Summ_School').collection('classes');
+    const instructorsCollection = client.db('Summ_School').collection('instructors');
+    const myClassCollection = client.db('Summ_School').collection('myClass');
 
+    app.get('/classes', async(req, res)=>{
+      const result = await classCollection.find().toArray();
+      res.send(result);
+    })
+
+    app.get('/instructors', async(req, res) => {
+      const result = await instructorsCollection.find().toArray();
+      res.send(result);
+    })
+    // class Management apis
+    app.get('/myClass', async(req, res)=>{
+      const email = req.query.email;
+      if(!email){
+        res.send([]);
+      }
+      const query = { email : email};
+      const result = await myClassCollection.find(query).toArray();
+      res.send(result);
+    });
+    
+    //Update myClass
+    app.post('/myClass', async(req, res)=>{
+      const course = req.body;
+      console.log(course);
+      const result = await myClassCollection.insertOne(course);
+      res.send(result);
+    })
+    //delete course from myClass
+    app.delete('/myClass/:id', async(req, res)=> {
+      const id = req.params.id;
+      const query = { _id : new ObjectId(id)};
+      const result = await myClassCollection.deleteOne(query);
+      res.send(result);
+    })
 
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
