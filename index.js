@@ -89,7 +89,7 @@ async function run() {
     })
 
     // class Management apis
-    app.get('/myClass', verifyJWT, async (req, res) => {
+    app.get('/myClass',verifyJWT, async (req, res) => {
       const email = req.query.email;
       if (!email) {
         res.send([]);
@@ -97,7 +97,7 @@ async function run() {
       //jwt token
       const decodedEmail = req.decoded.email;
       if (email !== decodedEmail) {
-        return res.status(403).send({ error: true, message: 'Not Provident' });
+        return res.status(403).send({ error: true, message: 'Forbidden' });
       }
 
       const query = { email: email };
