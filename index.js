@@ -10,6 +10,23 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+//jwt token verify
+const verifyJWT = (req, res, next) => {
+  const authorized = req.headers.authorization;
+  if (!authorized) {
+    return res.status(401).send({ error: true, message: 'Unauthorized Access' });
+  }
+
+  const token = authorized.split(' ')[1];
+
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (error, decoded) => {
+    if (error) {
+      return res.status(401).send({ error: true, message: 'Unauthorized Access' })
+    }
+    req.decoded = decoded;
+    next();
+  })
+}
 
 
 
@@ -53,11 +70,17 @@ async function run() {
     })
 
     // class Management apis
-    app.get('/myClass', async (req, res) => {
+    app.get('/myClass', verifyJWT, async (req, res) => {
       const email = req.query.email;
       if (!email) {
         res.send([]);
       }
+      //jwt token
+      const decodedEmail = req.decoded.email;
+      if (email !== decodedEmail) {
+        return res.status(403).send({ error: true, message: 'Not Provident' });
+      }
+
       const query = { email: email };
       const result = await myClassCollection.find(query).toArray();
       res.send(result);
@@ -88,8 +111,8 @@ async function run() {
     //Jwt Token
     app.post('/jwt', (req, res) => {
       const user = req.body;
-      const token = jwt.sign(user , process.env.ACCESS_TOKEN_SECRET, {expiresIn : '1h'});
-      res.send({token});
+      const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h' });
+      res.send({ token });
     })
 
     app.post('/users', async (req, res) => {
@@ -102,13 +125,35 @@ async function run() {
       const result = await userCollection.insertOne(user);
       res.send(result);
     })
+    //jwt user admin verification
+    app.get('/users/admin/:email', verifyJWT, async (req, res) => {
+      const email = req.params.email;
+      if (req.decoded.email !== email) {
+        res.send({ admin: false })
+      }
+      const query = { email: email }
+      const user = await userCollection.findOne(query);
+      const result = { admin: user?.role === 'Admin' }
+      res.send(result);
+    })
+    //jwt user instructor verification
+    app.get('/users/instructor/:email', verifyJWT, async (req, res) => {
+      const email = req.params.email;
+      if (req.decoded.email !== email) {
+        res.send({ instructor: false })
+      }
+      const query = { email: email }
+      const user = await userCollection.findOne(query);
+      const result = { instructor: user?.role === 'Instructor' }
+      res.send(result);
+    })
 
     app.patch('/users/admin/:id', async (req, res) => {
       const id = req.params.id;
       const query = { _id: new ObjectId(id) };
       const updateDoc = {
         $set: {
-          role : 'Admin'
+          role: 'Admin'
         },
       };
       const result = await userCollection.updateOne(query, updateDoc);
@@ -120,7 +165,7 @@ async function run() {
       const query = { _id: new ObjectId(id) };
       const updateDoc = {
         $set: {
-          role : 'Instructor'
+          role: 'Instructor'
         },
       };
       const result = await userCollection.updateOne(query, updateDoc);
