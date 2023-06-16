@@ -58,9 +58,20 @@ async function run() {
 
 
     // APIs Started
-    // get APIs
+    //verify is Admin
+
+
+
+    // get APIs All Classes
     app.get('/classes', async (req, res) => {
       const result = await classCollection.find().toArray();
+      res.send(result);
+    })
+    
+    //Add A class by Instructor
+    app.post('/classes', verifyJWT, async(req, res) => {
+      const newClasses = req.body;
+      const result = await classCollection.insertOne(newClasses);
       res.send(result);
     })
 
