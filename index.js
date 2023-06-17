@@ -89,7 +89,7 @@ async function run() {
     })
 
     // class Management apis
-    app.get('/myClass',verifyJWT, async (req, res) => {
+    app.get('/myClass', verifyJWT, async (req, res) => {
       const email = req.query.email;
       if (!email) {
         res.send([]);
@@ -167,6 +167,7 @@ async function run() {
       res.send(result);
     })
 
+    //Role Admin
     app.patch('/users/admin/:id', async (req, res) => {
       const id = req.params.id;
       const query = { _id: new ObjectId(id) };
@@ -178,7 +179,7 @@ async function run() {
       const result = await userCollection.updateOne(query, updateDoc);
       res.send(result);
     })
-
+    // Role Instructor
     app.patch('/users/instructor/:id', async (req, res) => {
       const id = req.params.id;
       const query = { _id: new ObjectId(id) };
@@ -190,6 +191,20 @@ async function run() {
       const result = await userCollection.updateOne(query, updateDoc);
       res.send(result);
     })
+
+    //Approved Class
+    app.patch('/classes/approved/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const updateDoc = {
+        $set: {
+          status: 'Approved'
+        },
+      };
+      const result = await userCollection.updateOne(query, updateDoc);
+      res.send(result);
+    })
+
 
     app.delete('/users/:id', async (req, res) => {
       const id = req.params.id;
