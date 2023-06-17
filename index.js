@@ -205,6 +205,19 @@ async function run() {
       res.send(result);
     })
 
+    //Denied Class
+    app.patch('/classes/deny/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const updateDoc = {
+        $set: {
+          status: 'Denied'
+        },
+      };
+      const result = await userCollection.updateOne(query, updateDoc);
+      res.send(result);
+    })
+
 
     app.delete('/users/:id', async (req, res) => {
       const id = req.params.id;
